@@ -1,10 +1,35 @@
+import 'package:atm_consultoria/tela_cliente.dart';
+import 'package:atm_consultoria/tela_contato.dart';
+import 'package:atm_consultoria/tela_empresa.dart';
+import 'package:atm_consultoria/tela_servico.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
 
-  void _abrirEmpresa(){
-
+class _HomeState extends State<Home> {
+  void _abrirEmpresa() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => TelaEmpresa()));
   }
+
+    void _abrirCliente() {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context)=> TelaCliente()));
+  }
+
+  void _abrirServico() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context)=> TelaServico()));
+  }
+
+  void _abrirContato() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context)=> TelaContato()));
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +44,20 @@ class Home extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          children:<Widget> [
+          children: <Widget>[
             Image.asset("images/logo.png"),
+
             Padding(
               padding: EdgeInsets.only(top: 32),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children:<Widget> [
+                children: <Widget>[
                   GestureDetector(
                     onTap: _abrirEmpresa,
                     child: Image.asset("images/menu_empresa.png"),
                   ),
                   GestureDetector(
-                    onTap: _abrirEmpresa,
+                    onTap: _abrirServico,
                     child: Image.asset("images/menu_servico.png"),
                   ),
                 ],
@@ -41,13 +67,13 @@ class Home extends StatelessWidget {
               padding: EdgeInsets.only(top: 32),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children:<Widget> [
+                children: <Widget>[
                   GestureDetector(
-                    onTap: _abrirEmpresa,
+                    onTap: _abrirCliente,
                     child: Image.asset("images/menu_cliente.png"),
                   ),
                   GestureDetector(
-                    onTap: _abrirEmpresa,
+                    onTap: _abrirContato,
                     child: Image.asset("images/menu_contato.png"),
                   ),
                 ],
